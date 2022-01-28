@@ -1,2 +1,4 @@
 # cblos.github.io
-website
+
+The official website for CBLOS, primarily used for documentation and updates from
+the CBLOS development team.
