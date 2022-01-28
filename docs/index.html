@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-        body {
-            text-align: center;
-        }
-        h1, h2, p {
-            color: rgb(69, 79, 88);
-            font-family: 'Roboto', sans-serif;
-        }
-    </style>
-    <title>cblos</title>
+    <link rel="stylesheet" href="style.css" />
+    <title>CBLOS</title>
 </head>
-<body>
-    <h1>CBL OS</h1>
-    <h2>32-bit operating system for Legacy BIOS</h2>
-    <h2>View the source <a href="https://github.com/cblos/cblos">here</a></h2>
-    <br>
-    <h1>Screenshot:</h1>
-    <p><i>There are no current screenshots</i></p>
+<body class="dark-mode">
+    <div class="titlebar">
+        <div class="name tb-click">CBLOS</div>
+        <div class="links">
+            <div class="link tb-click">Docs</div>
+            <div class="link tb-click">Souce</div>
+            <div class="link tb-click">Contribute</div>
+            <div class="link tb-click">Blog</div>
+        </div>
+        <button class="color-switch">
+            <img src="light.svg" />
+        </button>
+    </div>
+    <div class="main">
+        <h1 id="title">CBLOS</h1>
+        <h2 id="desc">A 32-bit Operating System for Legacy BIOS</h2>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
