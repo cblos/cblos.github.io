@@ -1,0 +1,138 @@
+/* Roboto font */
+/* TODO: Remove the un-needed font weights */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+/* .dark-mode is applied on the body tag, and then the color will transition to dark mode.
+ * once this class is removed, it will transition to light mode.
+ */
+
+:root {
+    /* Transition time to transition from light to dark mode and vice-versa */
+    --transition-time: 0.5s;
+    /* Transition time to transition font-size on window resize */
+    --font-transition-time: 0.15s;
+    /* Height of the title bar */
+    --title-bar-height: 3rem;
+}
+
+* {
+    /* Default font */
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    color: #2b343a;
+    transition: color var(--transition-time);
+}
+
+html {
+    /* Set a responsive font size */
+    font-size: clamp(8px, 1.5vw, 24px);
+    transition: font-size var(--font-transition-time);
+}
+
+.dark-mode * {
+    /* Set default font color */
+    color: whitesmoke;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: whitesmoke;
+    transition: background-color var(--transition-time);
+}
+
+body.dark-mode {
+    background-color: #18191a;
+}
+
+#title, #desc {
+    text-align: center;
+}
+
+.color-switch img {
+    width: 100%;
+    height: 100%;
+}
+
+/* buttons */
+
+.color-switch {
+    user-select: none;
+    padding: 0.4em;
+    border: 0;
+    outline: none;
+    border-radius: 0.2em;
+    background-color: #fff;
+    transition: background-color var(--transition-time);
+}
+
+.color-switch:hover {
+    background-color: #dbdbdb;
+}
+
+.color-switch:active {
+    background-color: #aaaaaa;
+}
+
+.dark-mode .color-switch {
+    background-color: #232729;
+}
+
+.dark-mode .color-switch:hover {
+    background-color: #363c3f;
+}
+
+.dark-mode .color-switch:active {
+    background-color: #525b5f;
+}
+
+.color-switch {
+    padding: 0.5vw;
+    margin: 0.75vw; 
+    border-radius: 50%;
+    position: relative;
+}
+
+/* Title bar */
+
+.titlebar {
+    user-select: none;
+    height: var(--title-bar-height);
+    width: 100vw;
+    left: 0;
+    top: 0;
+    position: fixed;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0.05rem 0.2rem;
+    transition: background-color var(--transition-time);
+}
+
+.dark-mode .titlebar {
+    background-color: #242526;
+}
+
+.titlebar .name, .titlebar .links .link {
+    line-height: var(--title-bar-height);
+    background-color: transparent;
+    padding: 0 1em 0 1em;
+    transition: background-color var(--transition-time);
+}
+
+.titlebar .links {
+    display: flex;
+    margin-left: auto;
+}
+
+.main {
+    margin-top: var(--title-bar-height);
+}
+
+.tb-click:hover {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.tb-click:active {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
