@@ -19,12 +19,16 @@ const LOAD = () =>
 {
     console.log("Page loaded.\nScripts can run now.");
     const LINKS = document.querySelectorAll(".links .link");
+
     const TOGGLE_LINKS = () => {
         for (link of LINKS)
             link.classList.toggle("show-menu");
     };
+
+    // close menu once clicked
     for (link of LINKS)
         link.addEventListener("click", TOGGLE_LINKS);
+
     const COLOR_SWITCH = document.querySelector(".color-switch");
     const MENU = document.querySelector(".tb-menu");
     // switch color on click, and add an animation
@@ -52,6 +56,24 @@ const LOAD = () =>
     });
 
     MENU.addEventListener("click", TOGGLE_LINKS);
+
+    window.addEventListener("click", (e) => {
+        const e = e || window.event || event;
+        let links_elem = e.target;
+        let click_outside = true;
+        // find parent element that's class name is `links`. if it exists, we did not 
+        // click outside the links, so they must stay open if it does not exist, we must
+        // close the menu because we clicked outside the menu 
+        while (links_elem = links_elem.parentElement) {
+            if (links_elem.classList.contains("links")){
+                click_outside = false;
+                break;
+            }
+        }
+        if (click_outside)
+            for (link of LINKS)
+                link.classList.remove("show-menu");
+    });
 }
 
 window.addEventListener("load", LOAD);
