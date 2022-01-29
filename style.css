@@ -14,7 +14,7 @@
     /* Height of the title bar */
     --title-bar-height: 3rem;
 }
-
+  
 * {
     /* Default font */
     font-family: 'Rubik', sans-serif;
@@ -52,15 +52,22 @@ body.dark-mode {
 }
 
 .color-switch img {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
 }
 
 /* buttons */
 
 .color-switch {
-    margin: 0.75vw 0.75vh;
+    /* min-width: 2rem;
+    min-height: 2rem; */
+    height: calc(var(--title-bar-height) - 1em);
+    margin: auto 0.75vw;
     aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: center;
     border-radius: 50%;
     user-select: none;
     border: 0;
@@ -78,7 +85,7 @@ body.dark-mode {
 }
 
 .dark-mode .color-switch {
-    background-color: #232729;
+    background-color: #242526;
 }
 
 .dark-mode .color-switch:hover {
@@ -90,6 +97,20 @@ body.dark-mode {
 }
 
 /* Title bar */
+
+@media only screen and (max-width: 450px) {
+    .titlebar .links .link {
+        display: none;
+    }
+    .titlebar .links::before {
+        content: "";
+        width: 3rem;
+        height: 0.5rem;
+        line-height: var(--title-bar-height);
+        left: 0;
+        background-color: blue;
+    }
+}
 
 .titlebar {
     user-select: none;
@@ -147,6 +168,8 @@ body.dark-mode {
 .dark-mode .tb-click:active {
     color: #8d8c8c;
 }
+
+/* Animations */
 
 .rotate-animation {
     animation: rotate .5s ease;
