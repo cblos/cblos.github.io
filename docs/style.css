@@ -29,10 +29,10 @@ html {
     transition: font-size var(--font-transition-time);
 }
 
-.dark-mode * {
+.dark-mode *, .dark-mode {
     /* Set default font color */
     color: whitesmoke;
-    /* Set color of the scrollbar */
+    /* Set color of the scrollbar (works only in firefox) */
     scrollbar-color: dark;
 }
 
@@ -59,8 +59,7 @@ body.dark-mode {
 /* buttons */
 
 .color-switch {
-    padding: 0.5vw;
-    margin: 0.75vw; 
+    margin: 0.75vw 0.75vh;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     user-select: none;
