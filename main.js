@@ -6,6 +6,7 @@ const LOAD = () =>
     console.log("Page loaded.\nScripts can run now.");
     const COLOR_SWITCH = document.querySelector(".color-switch");
     const BODY = document.body || document.querySelector("body");
+    const SOURCE_LINK = document.querySelector("#source");
     // switch color on click, and add an animation
     COLOR_SWITCH.addEventListener("click", () => {
         // change to dark mode
@@ -27,6 +28,10 @@ const LOAD = () =>
             // change to light mode (only for webkit)
             document.documentElement.style.colorScheme = "light";
         }
+    });
+    // add a link to the source code
+    SOURCE_LINK.addEventListener("click", () => {
+        window.open("https://github.com/cblos/cblos")
     });
 }
 
