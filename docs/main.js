@@ -1,3 +1,6 @@
+// set default color scheme (done before load, in order to reduce flicker)
+// only meant for webkit browsers, firefox is done in CSS
+document.documentElement.style.colorScheme = "dark";
 const LOAD = () => 
 {
     console.log("Page loaded.\nScripts can run now.");
@@ -14,10 +17,16 @@ const LOAD = () =>
         COLOR_SWITCH.classList.add("rotate-animation");
         // change the image
         const IMG = BODY.querySelector("img");
-        if (BODY.classList.contains("dark-mode"))
+        if (BODY.classList.contains("dark-mode")) {
             IMG.src = "./resources/light.svg";
-        else
+            // change to dark mode (only for webkit)
+            document.documentElement.style.colorScheme = "dark";
+        }
+        else {
             IMG.src = "./resources/dark.svg";
+            // change to light mode (only for webkit)
+            document.documentElement.style.colorScheme = "light";
+        }
     });
 }
 
