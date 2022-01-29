@@ -1,7 +1,7 @@
 // These are done before load, in order to reduce the amount of time we're on the 
 // wrong color mode, i.e. to reduce the page flash-time as the javascript loads.
 const BODY = document.body || document.querySelector("body");
-const IMG = BODY.querySelector("img");
+const IMG = BODY.querySelector(".color-switch img");
 const _DARK_MODE = localStorage.getItem("dark-mode");
 const  DARK_MODE = _DARK_MODE == null ? "true" : _DARK_MODE;
 // TODO: Somehow figure out how to temporarily disable transitions to load the user's stored theme. 
@@ -18,8 +18,15 @@ if (DARK_MODE === "true") {
 const LOAD = () => 
 {
     console.log("Page loaded.\nScripts can run now.");
+    const LINKS = document.querySelectorAll(".links .link");
+    const TOGGLE_LINKS = () => {
+        for (link of LINKS)
+            link.classList.toggle("show-menu");
+    };
+    for (link of LINKS)
+        link.addEventListener("click", TOGGLE_LINKS);
     const COLOR_SWITCH = document.querySelector(".color-switch");
-    const SOURCE_LINK = document.querySelector("#source");
+    const MENU = document.querySelector(".tb-menu");
     // switch color on click, and add an animation
     COLOR_SWITCH.addEventListener("click", () => {
         // change to dark mode
@@ -43,6 +50,8 @@ const LOAD = () =>
             document.documentElement.style.colorScheme = "light";
         }
     });
+
+    MENU.addEventListener("click", TOGGLE_LINKS);
 }
 
 window.addEventListener("load", LOAD);

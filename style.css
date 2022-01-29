@@ -13,6 +13,8 @@
     --font-transition-time: 0.05s;
     /* Height of the title bar */
     --title-bar-height: 3rem;
+    /* Transition time for the mobile menu bar (open-close) */
+    --title-bar-menu-transition: 0.2s;
 }
   
 * {
@@ -70,7 +72,6 @@ body.dark-mode {
     display: flex;
     align-items: center;
     justify-content: center;
-    transform-origin: center;
     border-radius: 50%;
     user-select: none;
     border: 0;
@@ -99,20 +100,6 @@ body.dark-mode {
 }
 
 /* Title bar */
-
-@media only screen and (max-width: 450px) {
-    .titlebar .links .link {
-        display: none;
-    }
-    .titlebar .links::before {
-        content: "";
-        width: 3rem;
-        height: 0.5rem;
-        line-height: var(--title-bar-height);
-        left: 0;
-        background-color: blue;
-    }
-}
 
 .titlebar {
     user-select: none;
@@ -151,26 +138,87 @@ body.dark-mode {
 }
 
 .tb-click {
-    background-color: transparent;
+    background-color: #fff;
     display: block;
+}
+
+.dark-mode .tb-click {
+    background-color: #242526;
 }
 
 .tb-click:hover {
     color: #2d2f30;
-    background-color: rgba(0, 0, 0, 0.2) !important;
+    background-color: #cccccc !important;
 }
 
 .dark-mode .tb-click:hover {
     color: #c8c8c8;
+    background-color: #1d1e1e !important;
 }
 
 .tb-click:active {
     color: #454747;
-    background-color: rgba(0, 0, 0, 0.4) !important;
+    background-color: #999999 !important;
 }
 
 .dark-mode .tb-click:active {
     color: #8d8c8c;
+    background-color: #161617 !important;
+}
+
+.tb-menu {
+    display: none;
+    outline: none;
+    border: 0;
+    background-color: transparent;
+    aspect-ratio: 1 / 1;
+    height: var(--title-bar-height);
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.tb-menu:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.tb-menu:active {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.tb-menu img {
+    width: 80%;
+    height: 80%;
+}
+
+@media only screen and (max-width: 450px) {
+    .links .link {
+        display: none;
+        text-align: center;
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    .tb-menu {
+        display: flex;
+    }
+
+    .titlebar .links {
+        position: absolute;
+        flex-wrap: wrap;
+    }
+
+    .titlebar .name {
+        margin-right: auto;
+    }
+
+    .color-switch, .titlebar .name {
+        z-index: 2;
+    }
+}
+
+.show-menu {
+    display: block !important;
 }
 
 /* Animations */
