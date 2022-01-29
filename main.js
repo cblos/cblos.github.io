@@ -3,12 +3,13 @@
 const BODY = document.body || document.querySelector("body");
 const IMG = BODY.querySelector("img");
 const _DARK_MODE = localStorage.getItem("dark-mode");
-const  DARK_MODE = _DARK_MODE ? _DARK_MODE : "true";
+const  DARK_MODE = _DARK_MODE == null ? "true" : _DARK_MODE;
 // TODO: Somehow figure out how to temporarily disable transitions to load the user's stored theme. 
 // maybe we need server side logic to do this?
-if (localStorage.getItem("dark-mode") === "true") {
+if (DARK_MODE === "true") {
     // set default color scheme only meant for webkit browsers, firefox is done in CSS
     document.documentElement.style.colorScheme = "dark";
+
 } else {
     // light theme
     BODY.classList.remove("dark-mode");
