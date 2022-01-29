@@ -29,6 +29,10 @@ html {
     transition: font-size var(--font-transition-time);
 }
 
+a {
+    text-decoration: none;
+}
+
 .dark-mode *, .dark-mode {
     /* Set default font color */
     color: whitesmoke;
