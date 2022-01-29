@@ -29,10 +29,6 @@ const LOAD = () =>
             document.documentElement.style.colorScheme = "light";
         }
     });
-    // add a link to the source code
-    SOURCE_LINK.addEventListener("click", () => {
-        window.open("https://github.com/cblos/cblos")
-    });
 }
 
 window.addEventListener("load", LOAD);
