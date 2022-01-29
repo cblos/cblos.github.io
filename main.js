@@ -58,8 +58,8 @@ const LOAD = () =>
     MENU.addEventListener("click", TOGGLE_LINKS);
 
     window.addEventListener("click", (e) => {
-        const e = e || window.event || event;
-        let links_elem = e.target;
+        const E = e || window.event || event;
+        let links_elem = E.target;
         let click_outside = true;
         // find parent element that's class name is `links`. if it exists, we did not 
         // click outside the links, so they must stay open if it does not exist, we must
