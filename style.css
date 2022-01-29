@@ -20,13 +20,12 @@
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
     color: #2b343a;
-    transition: color var(--transition-time);
+    transition: color var(--transition-time), background-color var(--transition-time), font-size var(--font-transition-time) !important;
 }
 
 html {
     /* Set a responsive font size */
     font-size: clamp(12px, 1.5vw, 24px);
-    transition: font-size var(--font-transition-time);
 }
 
 a {
@@ -44,7 +43,6 @@ body {
     padding: 0;
     margin: 0;
     background-color: whitesmoke;
-    transition: background-color var(--transition-time);
 }
 
 body.dark-mode {
@@ -63,8 +61,6 @@ body.dark-mode {
 /* buttons */
 
 .color-switch {
-    /* min-width: 2rem;
-    min-height: 2rem; */
     height: calc(var(--title-bar-height) - 1em);
     margin: auto 0.75vw;
     aspect-ratio: 1 / 1;
@@ -77,7 +73,6 @@ body.dark-mode {
     border: 0;
     outline: none;
     background-color: #fff;
-    transition: background-color var(--transition-time);
 }
 
 .color-switch:hover {
@@ -127,7 +122,6 @@ body.dark-mode {
     display: flex;
     justify-content: center;
     box-shadow: rgba(0, 0, 0, 0.2) 0 0.05rem 0.2rem;
-    transition: background-color var(--transition-time);
 }
 
 .dark-mode .titlebar {
@@ -140,9 +134,7 @@ body.dark-mode {
 
 .titlebar .name, .titlebar .links .link {
     line-height: var(--title-bar-height);
-    background-color: transparent;
     padding: 0 1rem 0 1rem;
-    transition: background-color var(--transition-time), color var(--transition-time);
 }
 
 .titlebar .links {
@@ -153,6 +145,11 @@ body.dark-mode {
 .main {
     margin-top: var(--title-bar-height);
     padding: 1rem;
+}
+
+.tb-click {
+    background-color: transparent;
+    display: block;
 }
 
 .tb-click:hover {
