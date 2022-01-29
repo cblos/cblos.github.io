@@ -57,11 +57,12 @@ body.dark-mode {
 /* buttons */
 
 .color-switch {
+    padding: 0.5vw;
+    margin: 0.75vw; 
+    border-radius: 50%;
     user-select: none;
-    padding: 0.4em;
     border: 0;
     outline: none;
-    border-radius: 0.2em;
     background-color: #fff;
     transition: background-color var(--transition-time);
 }
@@ -84,13 +85,6 @@ body.dark-mode {
 
 .dark-mode .color-switch:active {
     background-color: #525b5f;
-}
-
-.color-switch {
-    padding: 0.5vw;
-    margin: 0.75vw; 
-    border-radius: 50%;
-    position: relative;
 }
 
 /* Title bar */
@@ -127,6 +121,7 @@ body.dark-mode {
 
 .main {
     margin-top: var(--title-bar-height);
+    padding: 1rem;
 }
 
 .tb-click:hover {
@@ -135,4 +130,14 @@ body.dark-mode {
 
 .tb-click:active {
     background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
