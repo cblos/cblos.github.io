@@ -32,6 +32,8 @@ html {
 .dark-mode * {
     /* Set default font color */
     color: whitesmoke;
+    /* Set color of the scrollbar */
+    scrollbar-color: dark;
 }
 
 body {
@@ -59,6 +61,7 @@ body.dark-mode {
 .color-switch {
     padding: 0.5vw;
     margin: 0.75vw; 
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     user-select: none;
     border: 0;
@@ -92,7 +95,7 @@ body.dark-mode {
 .titlebar {
     user-select: none;
     height: var(--title-bar-height);
-    width: 100vw;
+    width: 100%;
     left: 0;
     top: 0;
     position: fixed;
@@ -107,11 +110,15 @@ body.dark-mode {
     background-color: #242526;
 }
 
+.titlebar .name {
+    font-weight: 600;
+}
+
 .titlebar .name, .titlebar .links .link {
     line-height: var(--title-bar-height);
     background-color: transparent;
-    padding: 0 1em 0 1em;
-    transition: background-color var(--transition-time);
+    padding: 0 1rem 0 1rem;
+    transition: background-color var(--transition-time), color var(--transition-time);
 }
 
 .titlebar .links {
@@ -125,9 +132,33 @@ body.dark-mode {
 }
 
 .tb-click:hover {
+    color: #2d2f30;
     background-color: rgba(0, 0, 0, 0.2) !important;
 }
 
+.dark-mode .tb-click:hover {
+    color: #c8c8c8;
+}
+
 .tb-click:active {
+    color: #454747;
     background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark-mode .tb-click:active {
+    color: #8d8c8c;
+}
+
+.rotate-animation {
+    animation: rotate .5s ease;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
