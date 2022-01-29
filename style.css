@@ -10,7 +10,7 @@
     /* Transition time to transition from light to dark mode and vice-versa */
     --transition-time: 0.5s;
     /* Transition time to transition font-size on window resize */
-    --font-transition-time: 0.15s;
+    --font-transition-time: 0.05s;
     /* Height of the title bar */
     --title-bar-height: 3rem;
 }
@@ -20,7 +20,10 @@
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
     color: #2b343a;
-    transition: color var(--transition-time), background-color var(--transition-time), font-size var(--font-transition-time) !important;
+    transition: 
+        color var(--transition-time), 
+        background-color var(--transition-time), 
+        font-size var(--font-transition-time) !important;
 }
 
 html {
@@ -129,7 +132,7 @@ body.dark-mode {
 }
 
 .titlebar .name {
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .titlebar .name, .titlebar .links .link {
