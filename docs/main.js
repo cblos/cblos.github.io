@@ -7,10 +7,9 @@ const LOAD = () =>
         BODY.classList.toggle("dark-mode");
         const IMG = BODY.querySelector("img");
         if (BODY.classList.contains("dark-mode"))
-            IMG.src = "./light.svg";
+            IMG.src = "./resources/light.svg";
         else
-            IMG.src = "./dark.svg";
+            IMG.src = "./resources/dark.svg";
     });
-    console.log(document.querySelectorAll('.tb-click'));
 }
 window.addEventListener("load", LOAD);
