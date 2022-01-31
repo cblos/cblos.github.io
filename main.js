@@ -68,19 +68,23 @@ const LOAD = () =>
                 link.classList.remove("show-menu");
     });
 
-    window.addEventListener('wheel', (e) => {
-        const delta = e.deltaY || e.wheelDelta;
-        if (delta > 1 || delta < -1)
-            if (delta < 0) {
-                // un-hide when we scroll up
+    let prev_scroll = window.scrollY;
+    const SCROLL_THRESHOLD = 1;
+    window.addEventListener('scroll', (e) => {
+        const WS = window.scrollY;
+        const DIFF = WS - prev_scroll;
+        if (DIFF > SCROLL_THRESHOLD || DIFF < -SCROLL_THRESHOLD) {
+            if (DIFF < 0) {
+                // unhide when scrolling up
                 TB.classList.remove('tb-hide');
                 MAIN.classList.remove('main-up');
-            }
-            else {
-                // hide when we scroll down
+            } else {
+                // hide when scrolling down
                 TB.classList.add('tb-hide');
                 MAIN.classList.add('main-up');
             }
+        }
+        prev_scroll = WS;
     });
 }
 
