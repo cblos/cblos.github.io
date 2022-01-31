@@ -127,6 +127,19 @@ body {
     background-color: var(--dark-active);
 }
 
+.color-switch.down {
+    position: fixed;
+    z-index: 2;
+    bottom: 1rem;
+    right: 1rem;
+    transition: opacity var(--transition-time), var(--base-transition) !important;
+}
+
+.color-switch.down.hide {
+    z-index: -2;
+    opacity: 0;
+}
+
 /* Title bar styles */
 
 .titlebar {
@@ -172,11 +185,6 @@ body {
 .main {
     margin-top: var(--title-bar-height);
     padding: 1rem;
-    transition: margin-top var(--transition-time), var(--base-transition) !important;
-}
-
-.main-up {
-    margin-top: 0;
 }
 
 /* Default styles for a clickable button on the titlebar */
