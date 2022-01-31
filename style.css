@@ -27,6 +27,12 @@
     --light-hover: #cccccc;
     --light-active: #999999;
     --light-font: #2b343a;
+
+    --default-box-shadow: rgba(0, 0, 0, 0.2) 0 0.07rem 0.2rem;
+    --base-transition: 
+        color var(--transition-time), 
+        background-color var(--transition-time), 
+        font-size var(--font-transition-time);
 }
 
 /* Main & basic styles */
@@ -38,15 +44,12 @@
     /* Default settings */
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
-    transition: 
-        color var(--transition-time), 
-        background-color var(--transition-time), 
-        font-size var(--font-transition-time) !important;
+    transition: var(--base-transition) !important;
 }
 
 html {
     /* Set a responsive font size (min 12px, max 24px, take 1.5vw as the value to check) */
-    font-size: clamp(12px, 1.25vw, 24px);
+    font-size: clamp(14px, 1.3vw, 26px);
 }
 
 a {
@@ -65,6 +68,9 @@ a {
 body {
     padding: 0;
     margin: 0;
+    flex-direction: column;
+    display: flex;
+    min-height: 100vh;
     background-color: var(--light-background);
 }
 
@@ -132,8 +138,14 @@ body {
     position: fixed;
     background-color: var(--light-main);
     display: flex;
+    overflow: hidden;
     justify-content: center;
-    box-shadow: rgba(0, 0, 0, 0.2) 0 0.07rem 0.2rem;
+    box-shadow: var(--default-box-shadow);
+    transition: top var(--transition-time), var(--base-transition) !important;
+}
+
+.tb-hide {
+    top: calc(0px - var(--title-bar-height)) !important;
 }
 
 .dark-mode .titlebar {
@@ -161,7 +173,13 @@ body {
 .main {
     margin-top: var(--title-bar-height);
     padding: 1rem;
+    transition: margin-top var(--transition-time), var(--base-transition) !important;
 }
+
+.main-up {
+    margin-top: 0;
+}
+
 /* Default styles for a clickable button on the titlebar */
 .tb-click {
     background-color: var(--light-main);
@@ -276,4 +294,16 @@ body {
 .mascot {
     height: 1em;
     display: inline-block;
+}
+
+.footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 1em;
+    background-color: var(--light-main);
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 0.4rem;
+}
+
+.dark-mode .footer {
+    background-color: var(--dark-main);
 }

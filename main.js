@@ -6,6 +6,11 @@ if (DARK_MODE !== "true") {
 const LOAD = () => 
 {
     console.log("Page loaded.\nScripts can run now.");
+    // set copyright year end to current year
+    const YEAR = new Date().getFullYear();
+    document.querySelector(".year").textContent = YEAR;
+    const TB = document.querySelector(".titlebar");
+    const MAIN = document.querySelector(".main");
     const LINKS = document.querySelectorAll(".links .link");
 
     const TOGGLE_LINKS = () => {
@@ -61,6 +66,21 @@ const LOAD = () =>
         if (click_outside)
             for (link of LINKS)
                 link.classList.remove("show-menu");
+    });
+
+    window.addEventListener('wheel', (e) => {
+        const delta = e.deltaY || e.wheelDelta;
+        if (delta > 1 || delta < -1)
+            if (delta < 0) {
+                // un-hide when we scroll up
+                TB.classList.remove('tb-hide');
+                MAIN.classList.remove('main-up');
+            }
+            else {
+                // hide when we scroll down
+                TB.classList.add('tb-hide');
+                MAIN.classList.add('main-up');
+            }
     });
 }
 
