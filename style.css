@@ -50,7 +50,7 @@ body {
     background-color: whitesmoke;
 }
 
-body.dark-mode {
+.dark-mode body {
     background-color: #18191a;
 }
 

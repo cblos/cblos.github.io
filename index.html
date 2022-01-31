@@ -8,8 +8,21 @@
     <meta name="color-scheme" content="dark light">
     <link rel="stylesheet" href="style.css" />
     <title>CBLOS</title>
+    <script>
+        // This script is in the head tag for a reason. It blocks the rendering of the page
+        // so that we can properly assign the color-scheme of the page *before* the page
+        // is rendered, thus eliminating all possiblity of a flicker when the page is loaded.
+        const ROOT = document.documentElement;
+        const _DARK_MODE = localStorage.getItem("dark-mode");
+        const  DARK_MODE = _DARK_MODE == null ? "true" : _DARK_MODE;
+        if (DARK_MODE === "true") {
+            // set default color scheme only meant for webkit browsers, firefox is done in CSS
+            ROOT.style.colorScheme = "dark";
+            ROOT.classList.add("dark-mode");
+        }
+    </script>
 </head>
-<body class="dark-mode">
+<body>
     <div class="titlebar">
         <a class="name tb-click" href="cblos.github.io">CBLOS</a>
         <div class="links">
