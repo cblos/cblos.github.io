@@ -46,7 +46,7 @@
 
 html {
     /* Set a responsive font size (min 12px, max 24px, take 1.5vw as the value to check) */
-    font-size: clamp(12px, 1.5vw, 24px);
+    font-size: clamp(12px, 1.25vw, 24px);
 }
 
 a {
