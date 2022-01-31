@@ -1,4 +1,4 @@
-/* Roboto font */
+/* Rubik font */
 /* TODO: Remove the un-needed font weights */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -15,13 +15,29 @@
     --title-bar-height: 3rem;
     /* Transition time for the mobile menu bar (open-close) */
     --title-bar-menu-transition: 0.2s;
+    /* Dark mode colors */
+    --dark-main: #242526;
+    --dark-background: #18191a;
+    --dark-hover: #383838;
+    --dark-active: #464545;
+    --dark-font: #e7e7e7;
+    /* Light mode colors */
+    --light-main: #fff;
+    --light-background: #f5f5f5;
+    --light-hover: #cccccc;
+    --light-active: #999999;
+    --light-font: #2b343a;
 }
-  
+
+/* Main & basic styles */
+
 * {
-    /* Default font */
+    /* Default light mode settings */
+    color: var(--light-font);
+    scrollbar-color: light;
+    /* Default settings */
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
-    color: #2b343a;
     transition: 
         color var(--transition-time), 
         background-color var(--transition-time), 
@@ -29,17 +45,19 @@
 }
 
 html {
-    /* Set a responsive font size */
+    /* Set a responsive font size (min 12px, max 24px, take 1.5vw as the value to check) */
     font-size: clamp(12px, 1.5vw, 24px);
 }
 
 a {
+    /* Remove underline */
     text-decoration: none;
 }
 
 .dark-mode *, .dark-mode {
+    /* Default dark mode settings */
     /* Set default font color */
-    color: whitesmoke;
+    color: var(--dark-font);
     /* Set color of the scrollbar (works only in firefox) */
     scrollbar-color: dark;
 }
@@ -47,23 +65,25 @@ a {
 body {
     padding: 0;
     margin: 0;
-    background-color: whitesmoke;
+    background-color: var(--light-background);
 }
 
 .dark-mode body {
-    background-color: #18191a;
+    background-color: var(--dark-background);
 }
 
 #title, #desc {
     text-align: center;
 }
 
+/* The size of the image in the color-switcher */
+
 .color-switch img {
     width: 90%;
     height: 90%;
 }
 
-/* buttons */
+/* The styles for color switcher */
 
 .color-switch {
     height: calc(var(--title-bar-height) - 1em);
@@ -76,30 +96,32 @@ body {
     user-select: none;
     border: 0;
     outline: none;
-    background-color: #fff;
+    background-color: var(--light-main);
 }
 
+/* Hover & active actions on the color switch button */
+
 .color-switch:hover {
-    background-color: #dbdbdb;
+    background-color: var(--light-hover);
 }
 
 .color-switch:active {
-    background-color: #aaaaaa;
+    background-color: var(--light-active);
 }
 
 .dark-mode .color-switch {
-    background-color: #242526;
+    background-color: var(--dark-main);
 }
 
 .dark-mode .color-switch:hover {
-    background-color: #363c3f;
+    background-color: var(--dark-hover);
 }
 
 .dark-mode .color-switch:active {
-    background-color: #525b5f;
+    background-color: var(--dark-active);
 }
 
-/* Title bar */
+/* Title bar styles */
 
 .titlebar {
     user-select: none;
@@ -108,18 +130,21 @@ body {
     left: 0;
     top: 0;
     position: fixed;
-    background-color: #fff;
+    background-color: var(--light-main);
     display: flex;
     justify-content: center;
-    box-shadow: rgba(0, 0, 0, 0.2) 0 0.05rem 0.2rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0.07rem 0.2rem;
 }
 
 .dark-mode .titlebar {
-    background-color: #242526;
+    background-color: var(--dark-main);
 }
 
 .titlebar .name {
     font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .titlebar .name, .titlebar .links .link {
@@ -132,40 +157,39 @@ body {
     margin-left: auto;
 }
 
+/* Default styles for the actual "body" called main */
 .main {
     margin-top: var(--title-bar-height);
     padding: 1rem;
 }
-
+/* Default styles for a clickable button on the titlebar */
 .tb-click {
-    background-color: #fff;
+    background-color: var(--light-main);
     display: block;
 }
 
 .dark-mode .tb-click {
-    background-color: #242526;
+    background-color: var(--dark-main);
 }
 
+/* Hover & active actions on clickable buttons on the titlebar */
 .tb-click:hover {
-    color: #2d2f30;
-    background-color: #cccccc !important;
+    background-color: var(--light-hover) !important;
 }
 
 .dark-mode .tb-click:hover {
-    color: #c8c8c8;
-    background-color: #1d1e1e !important;
+    background-color: var(--dark-hover) !important;
 }
 
 .tb-click:active {
-    color: #454747;
-    background-color: #999999 !important;
+    background-color: var(--light-active) !important;
 }
 
 .dark-mode .tb-click:active {
-    color: #8d8c8c;
-    background-color: #161617 !important;
+    background-color: var(--dark-active) !important;
 }
 
+/* Default styles for menu button */
 .tb-menu {
     display: none;
     outline: none;
@@ -178,19 +202,30 @@ body {
     margin: auto;
 }
 
+/* Hover & active actions on menu button */
 .tb-menu:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--light-hover);
+}
+
+.dark-mode .tb-menu:hover {
+    background-color: var(--dark-hover);
 }
 
 .tb-menu:active {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: var(--light-active);
 }
 
+.dark-mode .tb-menu:active {
+    background-color: var(--dark-active);
+}
+
+/* Make the mobile menu image 80% size */
 .tb-menu img {
     width: 80%;
     height: 80%;
 }
 
+/* Go to mobile mode when screen is <450 pixels wide */
 @media only screen and (max-width: 450px) {
     .links .link {
         display: none;
@@ -217,6 +252,7 @@ body {
     }
 }
 
+/* Shows the links in the menu when the menu bar is clicked */
 .show-menu {
     display: block !important;
 }
@@ -224,7 +260,7 @@ body {
 /* Animations */
 
 .rotate-animation {
-    animation: rotate .5s ease;
+    animation: rotate 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 @keyframes rotate {
@@ -235,4 +271,9 @@ body {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.mascot {
+    height: 1em;
+    display: inline-block;
 }
