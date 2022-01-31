@@ -82,6 +82,9 @@ const LOAD = () =>
                 // hide when scrolling down
                 TB.classList.add('tb-hide');
                 MAIN.classList.add('main-up');
+                // disable all links
+                for (link of LINKS)
+                    link.classList.remove("show-menu");
             }
         }
         prev_scroll = WS;
