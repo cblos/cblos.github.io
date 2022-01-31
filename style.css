@@ -138,7 +138,6 @@ body {
     position: fixed;
     background-color: var(--light-main);
     display: flex;
-    overflow: hidden;
     justify-content: center;
     box-shadow: var(--default-box-shadow);
     transition: top var(--transition-time), var(--base-transition) !important;
