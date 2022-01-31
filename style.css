@@ -225,8 +225,8 @@ body {
     height: 80%;
 }
 
-/* Go to mobile mode when screen is <450 pixels wide */
-@media only screen and (max-width: 450px) {
+/* Go to mobile mode when screen is <500 pixels wide */
+@media only screen and (max-width: 500px) {
     .links .link {
         display: none;
         text-align: center;
