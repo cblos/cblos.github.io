@@ -13,7 +13,7 @@ jobs:
                   submodule: recursive
                   depth: 1
 
-            - name: Setup NodeJS v${{ matrix.node-version }}
+            - name: Setup NodeJS v16
               uses: actions/setup-node@v1
               with:
                   node-version: 16.x
@@ -22,15 +22,20 @@ jobs:
               run: |
                   echo "NodeJS version: $(node -v)"
                   echo "NPM version: $(npm -v)"
+ 
             - name: Install dependencies
               run: |
                   npm ci
+
             - name: Build project
               run: |
                   npm run build
-                  
-            - name: push
-              uses: github-actions-x/commit@v2
+              env:
+                  NODE_ENV: production
+
+            - name: Deploy project
+              uses: peaceiris/actions-gh-pages@v3
               with:
-                push-branch: docs
-                rebase: true
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_branch: docs
+                  publish_dir: '.' # Root directory
