@@ -14,12 +14,12 @@ const LOAD = () =>
     const LINKS = document.querySelectorAll(".links .link");
 
     const TOGGLE_LINKS = () => {
-        for (link of LINKS)
+        for (const link of LINKS)
             link.classList.toggle("show-menu");
     };
 
     // close menu once clicked
-    for (link of LINKS)
+    for (const link of LINKS)
         link.addEventListener("click", TOGGLE_LINKS);
 
     const COLOR_SWITCHERS = document.querySelectorAll(".color-switch");
@@ -71,7 +71,7 @@ const LOAD = () =>
             }
         }
         if (click_outside)
-            for (link of LINKS)
+            for (const link of LINKS)
                 link.classList.remove("show-menu");
     });
 
@@ -89,7 +89,7 @@ const LOAD = () =>
                 // hide when scrolling down
                 TB.classList.add('tb-hide');
                 // disable all links
-                for (link of LINKS)
+                for (const link of LINKS)
                     link.classList.remove("show-menu");
                 COLOR_SWITCH_DOWN.classList.remove("hide");
             }
