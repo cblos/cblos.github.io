@@ -8,7 +8,13 @@
         <p>-test-docs-here-</p>
         <script type="module">
             let dirs = {};
-            fetch('../dir-structure.json')
+            fetch('../dir-structure.json', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Permissions-Policy': 'interest-cohort=()'
+                }
+            })
                 .then(response => response.json())
                 .catch(error => console.error(error))
                 .then(data => { dirs = data })
