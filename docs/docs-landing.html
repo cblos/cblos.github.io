@@ -7,7 +7,12 @@
         <h1>Welcome to the CBLOS Docs!</h1>
         <p>-test-docs-here-</p>
         <script type="module">
-            import { dirs } from '../dir-structure.js';
+            const dirs = 
+                fetch('../dir-structure.json')
+                .then(response => response.json())
+                .catch(error => console.error(error))
+                .then(data => data)
+                .catch(error => console.error(error));
             document.querySelector('p').textContent = JSON.stringify(dirs);
         </script>
     </body>

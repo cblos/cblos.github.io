@@ -1,7 +1,3 @@
-import { dirs } from './dir-structure.js';
-
-console.log('Directories: ', dirs);
-
 const BODY = document.body || document.querySelector("body");
 // const IMG = BODY.querySelector(".color-switch img");
 const IMGS = BODY.querySelectorAll(".color-switch img");
