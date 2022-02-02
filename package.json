@@ -1,0 +1,19 @@
+{
+  "name": "cblos.github.io",
+  "version": "1.0.0",
+  "description": "The official website for the CBL operating system",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cblos/cblos.github.io.git"
+  },
+  "author": "CBLOS Authors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cblos/cblos.github.io/issues"
+  },
+  "homepage": "https://github.com/cblos/cblos.github.io#readme"
+}
