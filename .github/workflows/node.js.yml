@@ -30,7 +30,7 @@ jobs:
                   npm run build
                   
             - name: push
-              uses: github-actions-x/commit@v4
+              uses: github-actions-x/commit@v2
               with:
                 push-branch: docs
                 rebase: true
