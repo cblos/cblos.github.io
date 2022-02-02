@@ -14,9 +14,13 @@
                     'Permissions-Policy': 'interest-cohort=()'
                 }
             })
-                .then(response => { console.log("Got response!", response); response.json(); })
+                .then(response => { 
+                    const json = response.json(); 
+                    console.log("Got response!", response, 'json:', json); 
+                    return json; 
+                })
                 .catch(error => console.error(error))
-                .then(data => { console.log("Got data!", data);; dirs = data; })
+                .then(data => { console.log("Got data!", data); dirs = data; })
                 .catch(error => console.error(error));
             document.querySelector('p').textContent = JSON.stringify(dirs);
         </script>
