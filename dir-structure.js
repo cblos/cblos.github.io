@@ -1,1 +1,0 @@
-const dirs={"files":["docs-landing.html"]};export default dirs;
