@@ -7,11 +7,11 @@
         <h1>Welcome to the CBLOS Docs!</h1>
         <p>-test-docs-here-</p>
         <script type="module">
-            const dirs = 
-                fetch('../dir-structure.json')
+            let dirs = {};
+            fetch('../dir-structure.json')
                 .then(response => response.json())
                 .catch(error => console.error(error))
-                .then(data => data)
+                .then(data => { dirs = data })
                 .catch(error => console.error(error));
             document.querySelector('p').textContent = JSON.stringify(dirs);
         </script>
