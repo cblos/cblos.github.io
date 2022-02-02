@@ -7,22 +7,19 @@
         <h1>Welcome to the CBLOS Docs!</h1>
         <p>-test-docs-here-</p>
         <script type="module">
-            let dirs = "empty";
+            const render = () => {
+                document.querySelector('p').textContent = JSON.stringify(dirs);
+            };
             fetch('../dir-structure.json', {
                 method: 'GET',
                 headers: {
                     'Permissions-Policy': 'interest-cohort=()'
                 }
             })
-                .then(response => { 
-                    const json = response.json(); 
-                    console.log("Got response!", response, 'json:', json); 
-                    return json; 
-                })
+                .then(response => response.json())
                 .catch(error => console.error(error))
-                .then(data => { console.log("Got data!", data); dirs = data; })
+                .then(data => render(data))
                 .catch(error => console.error(error));
-            document.querySelector('p').textContent = JSON.stringify(dirs);
         </script>
     </body>
 </html>
