@@ -1,1 +1,1 @@
-const DIR_STRUCTURE={"test":{"test-1":{"files":["test-1.html","test1.md"]},"files":["test.html"]},"files":["docs-landing.html"]};export default DIR_STRUCTURE;
+const dirs={"files":["docs-landing.html"]};export default dirs;

@@ -15,7 +15,7 @@ const scan_dirs = (path = '', collected_json = {}) => {
     return collected_json;
 };
 
-const JS_CONTENT = Buffer.from(`const DIR_STRUCTURE=${JSON.stringify(scan_dirs())};export default DIR_STRUCTURE;`);
+const JS_CONTENT = Buffer.from(`const dirs=${JSON.stringify(scan_dirs())};export default dirs;`);
 FS.open('./dir-structure.js', 'w', (err, fd) => {
     if (err)
         console.log(`Error encountered while opening file!\n${err.message || err.toString()}`);
