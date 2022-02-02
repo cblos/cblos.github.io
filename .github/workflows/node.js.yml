@@ -30,9 +30,7 @@ jobs:
                   npm run build
                   
             - name: push
-              uses: github-actions-x/commit@v2.8
+              uses: github-actions-x/commit@v4
               with:
-                github-token: ${{ secrets.GITHUB_TOKEN }}
                 push-branch: docs
-                commit-message: '${{ matrix.node-version }} update dir structure'
                 rebase: true
