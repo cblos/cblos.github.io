@@ -7,7 +7,7 @@
         <h1>Welcome to the CBLOS Docs!</h1>
         <p>-test-docs-here-</p>
         <script type="module">
-            const render = () => {
+            const render = (dirs) => {
                 document.querySelector('p').textContent = JSON.stringify(dirs);
             };
             fetch('../dir-structure.json', {
