@@ -2,7 +2,7 @@
 /* TODO: Remove the un-needed font weights */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 
-/* .dark is applied on the body tag, and then the color will transition to dark mode.
+/* .dark-mode is applied on the body tag, and then the color will transition to dark mode.
  * once this class is removed, it will transition to light mode.
  */
 
@@ -57,7 +57,7 @@ a {
     text-decoration: none;
 }
 
-.dark *, .dark {
+.dark-mode *, .dark-mode {
     /* Default dark mode settings */
     /* Set default font color */
     color: var(--dark-font);
@@ -74,7 +74,7 @@ body {
     background-color: var(--light-background);
 }
 
-.dark body {
+.dark-mode body {
     background-color: var(--dark-background);
 }
 
@@ -95,7 +95,6 @@ body {
     height: calc(var(--title-bar-height) - 1em);
     margin: auto 0.75vw;
     aspect-ratio: 1 / 1;
-	overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,15 +115,15 @@ body {
     background-color: var(--light-active);
 }
 
-.dark .color-switch {
+.dark-mode .color-switch {
     background-color: var(--dark-main);
 }
 
-.dark .color-switch:hover {
+.dark-mode .color-switch:hover {
     background-color: var(--dark-hover);
 }
 
-.dark .color-switch:active {
+.dark-mode .color-switch:active {
     background-color: var(--dark-active);
 }
 
@@ -143,7 +142,7 @@ body {
 
 /* Title bar styles */
 
-.navbar {
+.titlebar {
     user-select: none;
     height: var(--title-bar-height);
     width: 100%;
@@ -161,23 +160,23 @@ body {
     top: calc(0px - var(--title-bar-height)) !important;
 }
 
-.dark .navbar {
+.dark-mode .titlebar {
     background-color: var(--dark-main);
 }
 
-.navbar .name {
+.titlebar .name {
     font-weight: 400;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.navbar .name, .navbar .links .tb-click {
+.titlebar .name, .titlebar .links .link {
     line-height: var(--title-bar-height);
     padding: 0 1rem 0 1rem;
 }
 
-.navbar .links {
+.titlebar .links {
     display: flex;
     margin-left: auto;
 }
@@ -194,7 +193,7 @@ body {
     display: block;
 }
 
-.dark .tb-click {
+.dark-mode .tb-click {
     background-color: var(--dark-main);
 }
 
@@ -203,7 +202,7 @@ body {
     background-color: var(--light-hover) !important;
 }
 
-.dark .tb-click:hover {
+.dark-mode .tb-click:hover {
     background-color: var(--dark-hover) !important;
 }
 
@@ -211,7 +210,7 @@ body {
     background-color: var(--light-active) !important;
 }
 
-.dark .tb-click:active {
+.dark-mode .tb-click:active {
     background-color: var(--dark-active) !important;
 }
 
@@ -233,7 +232,7 @@ body {
     background-color: var(--light-hover);
 }
 
-.dark .tb-menu:hover {
+.dark-mode .tb-menu:hover {
     background-color: var(--dark-hover);
 }
 
@@ -241,7 +240,7 @@ body {
     background-color: var(--light-active);
 }
 
-.dark .tb-menu:active {
+.dark-mode .tb-menu:active {
     background-color: var(--dark-active);
 }
 
@@ -253,7 +252,7 @@ body {
 
 /* Go to mobile mode when screen is <500 pixels wide */
 @media only screen and (max-width: 500px) {
-    .links .tb-click {
+    .links .link {
         display: none;
         text-align: center;
         width: 100vw;
@@ -264,16 +263,16 @@ body {
         display: flex;
     }
 
-    .navbar .links {
+    .titlebar .links {
         position: absolute;
         flex-wrap: wrap;
     }
 
-    .navbar .name {
+    .titlebar .name {
         margin-right: auto;
     }
 
-    .color-switch, .navbar .name {
+    .color-switch, .titlebar .name {
         z-index: 2;
     }
 }
@@ -312,6 +311,6 @@ body {
     box-shadow: rgba(0, 0, 0, 0.2) 0 0 0.4rem;
 }
 
-.dark .footer {
+.dark-mode .footer {
     background-color: var(--dark-main);
 }

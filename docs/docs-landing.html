@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to the CBLOS Docs!</title>
+    </head>
+    <body>
+        <h1>Welcome to the CBLOS Docs!</h1>
+        <p>-test-docs-here-</p>
+        <script type="module">
+            const render = (dirs) => {
+                document.querySelector('p').textContent = JSON.stringify(dirs);
+            };
+            fetch('../dir-structure.json', {
+                method: 'GET',
+                headers: {
+                    'Permissions-Policy': 'interest-cohort=()'
+                }
+            })
+                .then(response => response.json())
+                .catch(error => console.error(error))
+                .then(data => render(data))
+                .catch(error => console.error(error));
+        </script>
+    </body>
+</html>

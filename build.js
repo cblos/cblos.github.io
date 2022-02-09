@@ -2,7 +2,7 @@ const FS = require('fs');
 const PATH = require('path');
 
 const scan_dirs = (path = '', collected_json = {}) => {
-    const dir = PATH.resolve(__dirname, './src/docs', path);
+    const dir = PATH.resolve(__dirname, 'docs', path);
     const files = FS.readdirSync(dir, { withFileTypes: true });
     let collected_files = [];
     files.forEach(file => {
@@ -16,7 +16,7 @@ const scan_dirs = (path = '', collected_json = {}) => {
 };
 
 const JS_CONTENT = Buffer.from(JSON.stringify(scan_dirs()));
-FS.open('./src/dir-structure.json', 'w', (err, fd) => {
+FS.open('./dir-structure.json', 'w', (err, fd) => {
     if (err)
         console.log(`Error encountered while opening file!\n${err.message || err.toString()}`);
     else 
